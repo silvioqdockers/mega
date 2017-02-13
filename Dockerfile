@@ -9,6 +9,7 @@ RUN  apt-get update -qq && apt-get install -y \
     libc-ares-dev    \
     libcrypto++-dev    \
     libcurl4-openssl-dev   \
+    libfuse-dev  \
     libsqlite3-dev  \
     libssl-dev    \
     libreadline-dev  \
@@ -17,7 +18,7 @@ RUN  apt-get update -qq && apt-get install -y \
     && git clone https://github.com/meganz/sdk.git  \
     && cd sdk \
     && sh autogen.sh  \
-    && ./configure \
+    && ./configure --with-fuse \
     && make \
     && make install  \
     && cd / \
